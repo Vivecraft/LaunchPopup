@@ -18,5 +18,5 @@ test {
 }
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
-    options.release = 8
+    options.compilerArgs.addAll(['-source', '8', '-target', '8'])
 }
