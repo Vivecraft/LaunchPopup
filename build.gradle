@@ -13,10 +13,20 @@ repositories {
 
 dependencies {
 }
-
-test {
-}
 tasks.withType(JavaCompile) {
     options.encoding = "UTF-8"
     options.compilerArgs.addAll(['-source', '8', '-target', '8'])
+}
+publishing {
+    publications {
+        mavenCommon(MavenPublication) {
+            artifactId = rootProject.name
+            from components.java
+        }
+    }
+
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
+    repositories {
+        // Add repositories to publish to here.
+    }
 }
